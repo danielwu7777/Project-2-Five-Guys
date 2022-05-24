@@ -1,0 +1,16 @@
+#RubyMine project
+.idea/
+
+#Test and misc files
+Gemfile
+Gemfile.lock
+.rspec
+
+#Bundler config
+/.bundle
+
+#Temp files and log files
+/log/*.log
+/tmp
+
+
