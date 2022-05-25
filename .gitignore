@@ -2,8 +2,6 @@
 .idea/
 
 #Test and misc files
-Gemfile
-Gemfile.lock
 .rspec
 
 #Bundler config
@@ -12,5 +10,3 @@ Gemfile.lock
 #Temp files and log files
 /log/*.log
 /tmp
-
-
