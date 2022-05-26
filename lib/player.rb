@@ -36,28 +36,21 @@ class Player
 
     # Return an array of 3 indexes for 3 cards. Determined by user inputs.
     def choose_cards()
-        indexes = [0,0,0]
+        indexes = [nil,nil,nil]
         puts "Please input 3 indexes of cards (1 <= index <= 12)."
         print "First index:"
-        input = gets
-        indexes[0] = input[0...input.length-1].to_i
+        indexes[0] = gets.chomp!.to_i
         
         print "Second index:"
-        input = gets
-        indexes[1] = input[0...input.length-1].to_i
+        indexes[1] = gets.chomp!.to_i
 
         print "Third index:"
-        input = gets
-        indexes[2] = input[0...input.length-1].to_i
+        indexes[2] = gets.chomp!.to_i
 
         indexes
     end
-    
 
 end
-
-
-
 
 
 
