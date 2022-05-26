@@ -1,4 +1,5 @@
 # File created 5/25/2022 by Yuhao Yan
+# Edited 5/26/2022 by Yuhao Yan
 class Player
     # initialize player with name "John" and score 0.
     def initialize(name = "John",score = 0)
