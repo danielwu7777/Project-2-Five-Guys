@@ -7,21 +7,7 @@ class Dealer
             @dealer = Array.new
         end
     
-        # show up the table
-        def show_table
-            puts "Cards on table: "
-            i = 0
-            until i == @table.length() do
-                3.times do
-                    card = @table[i]
-                    str = (i+1).to_s + ". " + card.to_s
-                    (34 - str.length).times { str += " " }
-                    print str
-                    i += 1
-                end
-                puts "\n"
-            end
-        end
+       
          
         # lay out 12 cards on the table    
         def start_game(deck) 
@@ -51,6 +37,11 @@ class Dealer
             @dealer.push(card)
         end 
         
+          # return the card at specified index
+          def deck.draw(index)
+                @deck[index]
+          end
+                
         # remove one card from the table   
         def delete_card(card)
             @dealer.delete(card)
