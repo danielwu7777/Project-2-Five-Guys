@@ -20,7 +20,7 @@ class Deck
       3.times { |shape|
         3.times { |color|
           3.times { |count|
-            @stack.push Card.new(shade, shape, color, count)
+            @stack.push Card.new(shade + 1, shape + 1, color + 1, count + 1)
           }
         }
       }
