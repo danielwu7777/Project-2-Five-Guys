@@ -48,6 +48,7 @@ describe 'Deck' do
   it 'converts to string' do
     deck = Deck.new
     expect(deck.to_s.class == "".class).to be_truthy
+    puts deck.to_s
   end
 
 end
