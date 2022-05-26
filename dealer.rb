@@ -45,7 +45,7 @@ class Dealer
              
         # add a card from the deck and show it on the table 
         def add_cards(deck)
-            index = rand(0..deck.length-1)
+            
             card = deck.get_card(index)
             deck.deleteCard(card)
             @dealer.push(card)
