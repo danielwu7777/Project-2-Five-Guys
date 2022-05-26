@@ -1,3 +1,5 @@
+# File created 5/24/2022 by Jake McCann
+
 SHADING_TYPE = {
   filled: 1,
   shaded: 2,
