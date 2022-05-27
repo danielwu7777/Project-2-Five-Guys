@@ -13,7 +13,8 @@ class Dealer
     end
     
     # Create 5/27/2022 by Mingxuan Gong
-    # Edited 5/25/2022 by Mingxuan Gong     
+    # Edited 5/25/2022 by Mingxuan Gong
+    # Edited 5/27/2022 by Jake McCann: fixed argument bug
     # lay out 12 cards on the table    
     def start_game() 
         while @dealt_cards.length < 12 do
