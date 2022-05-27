@@ -8,22 +8,21 @@ class GameManager
     # Initializes game
     def startGame
         # Get number of players
-        puts "Enter number of players(2 maximum): "
-        numPlayers = gets.to_i
+        puts "Enter number of players(2 maximum): "      # maybe put 11-15 in method
+        numPlayers = gets.to_i #maybe chomp?
         if numPlayers != 1 && numPlayers != 2
             puts "Invalid number of players. Expected 1 or 2 but got " + numPlayers.to_s
         end
         # Assuming there's only one player for checkpoint 1
         @playerOne = Player.new
-        # Create instance variables to determine who's turn it is (1 means playerOne's turn, 2 means playerTwo's turn)
+        # (1 means playerOne's turn, 2 means playerTwo's turn)
         @playerTurn = 1;
-        # Initiate dealer
         @dealer = Dealer.new
     end   
      
     # Created 5/26/2022 by Daniel Wu
     # Gets turn
-    def getTurn
+    def getTurn # use ..........attr_reader :playerTurn .................5/27 stand up- maybe we don't need this getter
         return @playerTurn
     end
 
@@ -33,10 +32,12 @@ class GameManager
     def switchTurn  
         if @playerTurn == 1
             @playerTurn = 2
-            chosenCardsArray = @playerOne.choose_cards
+            chosenCardsArray = @playerOne.choose_cards # should be playerTwo
+            # do something with array
         else
             @playerTurn = 1
             chosenCardsArray = @playerOne.choose_cards
+            # do something with array
         end
     end      
 

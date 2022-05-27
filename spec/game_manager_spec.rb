@@ -31,4 +31,6 @@ describe 'GameManager' do
         game.switchTurn
         expect(game.getTurn == 1).to be_truthy
     end
+
+    # Tests for invalid input of number of players
 end
