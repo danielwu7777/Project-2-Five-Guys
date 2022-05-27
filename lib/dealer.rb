@@ -11,11 +11,11 @@ class Dealer
     end
          
     # lay out 12 cards on the table    
-    def start_game(deck) 
+    def start_game() 
         while @dealt_cards.length < 12 do
-           deal_cards
+           deal_card
         end
-        Game_Table.display_cards
+        Game_Table.display_cards(@dealt_cards)
     end     
     # pick the specified card
     def get_card(i)
@@ -23,16 +23,12 @@ class Dealer
     end
           
     # if there aren't a set in the table then add 3 more cards to the table
-    def add_three_cards(deck)
-        if deck.length > 0
-            for i in 0..2
-                add_cards(deck)
-            end
-        end
+    def add_three_cards()
+
     end
              
     # add a card from the deck and show it on the table 
-    def deal_cards(deck)
+    def deal_card()
             
         card = @deck.draw
         @dealt_cards.push(card)
