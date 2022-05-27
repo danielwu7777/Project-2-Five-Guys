@@ -7,6 +7,7 @@ class Dealer
     def initialize
         @dealt_cards = Array.new
         @deck = deck.new
+        start_game
     end
          
     # lay out 12 cards on the table    
