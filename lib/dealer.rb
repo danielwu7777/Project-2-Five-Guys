@@ -6,7 +6,7 @@ class Dealer
     # generate a table to show 12 cards 
     def initialize
         @dealt_cards = Array.new
-        @deck = deck.new
+        @deck = Deck.new
         start_game
     end
          
