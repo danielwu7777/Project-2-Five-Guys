@@ -5,7 +5,8 @@ require_relative 'game_table'
 # File created 5/24/2022 by Mingxuan Gong
 # Edited 5/25/2022 by Mingxuan Gong
 class Dealer
-    # generate a table to show 12 cards 
+    # generate a table to show 12 cards
+    # Edited 5/27/2022 by Jake McCann: fixed capitaliztion on deck
     def initialize
         @dealt_cards = Array.new
         @deck = Deck.new
@@ -14,7 +15,6 @@ class Dealer
     
     # Create 5/27/2022 by Mingxuan Gong
     # Edited 5/25/2022 by Mingxuan Gong
-    # Edited 5/27/2022 by Jake McCann: fixed argument bug
     # lay out 12 cards on the table    
     def start_game() 
         while @dealt_cards.length < 12 do
