@@ -34,11 +34,6 @@ class Dealer
         deck.deleteCard(card)
         @dealer.push(card)
     end 
-        
-    # return the card at specified index
-    def deck.draw(index)
-        @deck[index]
-    end
                 
     # remove one card from the table   
     def delete_card(card)
