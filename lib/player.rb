@@ -1,40 +1,55 @@
 # File created 5/25/2022 by Yuhao Yan
 # Edited 5/26/2022 by Yuhao Yan
 class Player
+
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # initialize player with name "John" and score 0.
     def initialize(name = "John",score = 0)
         @name = name
         @score = score
     end
 
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Get the name of player.
     def get_name()
         @name
     end
 
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Set new player name.
     # Default: name "John"
     def set_name!(name = "John")
         @name = name
     end
 
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Get the score of player.
     def get_score()
         @score
     end
 
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Set new player name.
     # Default: score 0
     def set_score!(score = 0)
         @score = score
     end
 
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Increment score by input number{@points} of points
     # Default: score increments by 1
     def score_increment!(points = 1)
         @score += points
     end
 
+    # Created 5/25/2022 by Yuhao Yan
+    # Edited 5/26/2022 by Yuhao Yan: Change of method name. Change the way of manipulating Strings from user inputs
     # Return an array of 3 indexes for 3 cards. Determined by user inputs.
     def choose_cards()
         indexes = [nil,nil,nil]
