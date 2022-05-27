@@ -12,8 +12,9 @@ class Dealer
     # lay out 12 cards on the table    
     def start_game(deck) 
         while @dealt_cards.length < 12 do
-            add_cards(deck)
+           deal_cards
         end
+        Game_Table.display_cards
     end     
     # pick the specified card
     def get_card(i)
@@ -34,7 +35,7 @@ class Dealer
             
         card = @deck.draw
         @dealt_cards.push(card)
-        Game_Table.display_card
+        
     end 
                 
     # remove one card from the table   
