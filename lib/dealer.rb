@@ -1,15 +1,17 @@
 require_relative 'card'
 require_relative 'deck'
+require_relative 'game_table'
 
 class Dealer
     # generate a table to show 12 cards 
     def initialize
-        @dealer = Array.new
+        @dealt_cards = Array.new
+        @deck = deck.new
     end
          
     # lay out 12 cards on the table    
     def start_game(deck) 
-        while @dealer.length < 12 do
+        while @dealt_cards.length < 12 do
             add_cards(deck)
         end
     end     
@@ -28,16 +30,16 @@ class Dealer
     end
              
     # add a card from the deck and show it on the table 
-    def add_cards(deck)
+    def deal_cards(deck)
             
-        card = deck.get_card(index)
-        deck.deleteCard(card)
-        @dealer.push(card)
+        card = @deck.draw
+        @dealt_cards.push(card)
+        Game_Table.display_card
     end 
                 
     # remove one card from the table   
     def delete_card(card)
-        @dealer.delete(card)
+        @dealt_cards.delete(card)
     end
    
     # return the length of the card
