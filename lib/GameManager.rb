@@ -1,4 +1,5 @@
 # File created 5/25/2022 by Daniel Wu 
+require_relative 'dealer'
 class GameManager   
   
     # Created 5/25/2022 by Daniel Wu
@@ -14,7 +15,7 @@ class GameManager
         # Create instance variables to determine who's turn it is (1 means playerOne's turn, 2 means playerTwo's turn)
         @playerTurn = 1;
         # Initiate dealer
-        dealer.initialize
+        @dealer = Dealer.new
     end   
      
     # Created 5/25/2022 by Daniel Wu

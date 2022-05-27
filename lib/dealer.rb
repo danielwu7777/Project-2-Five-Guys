@@ -52,3 +52,4 @@ class Dealer
     	@table.length()
         end
     end
+end
