@@ -45,7 +45,6 @@ class GameManager
 
     # Created 5/25/2022 by Daniel Wu
     # Edited 5/27/2022 by Daniel Wu: Changed call for getting player's scores
-    # End game by displaying winner
     def endGame  
         puts "GAME ENDED"
         puts "Score Breakdown:"
