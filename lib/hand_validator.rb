@@ -8,14 +8,12 @@ class Hand_Validate
   def self.validate_hand(cards)
     different = true
     attribue_array = cards.map{|card| card.get_attribute_array}
-    card1 = attribue_array[0]
-    card2 = attribue_array[1]
-    card3 = attribue_array[2]
-    card1.each_index { |index|
-      return true if card1[index] == card2[index] and card2[index] == card3[index]
-      different = different && card1[index] != card2[index] && card2[index] != card3[index]
+
+    attribue_array[0].each_index { |index|
+      return true if attribue_array[0][index] == attribue_array[1][index] and attribue_array[1][index] == attribue_array[2][index]
+      different = different && attribue_array[0][index] != attribue_array[1][index] && attribue_array[1][index] != attribue_array[2][index]
     }
-    return different
+    different
 
   end
 end
