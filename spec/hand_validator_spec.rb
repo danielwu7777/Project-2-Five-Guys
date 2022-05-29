@@ -19,7 +19,6 @@ describe 'Hand_Validator' do
 
   # Created 5/28/2022 by Noah Moon
   it 'returns true when same second attribute is same' do
-    deck = Deck.new
     card_set = Set.new
     card_set.add(Card.new 1,2,1,1)
     card_set.add(Card.new 2,2,2,2)
@@ -41,7 +40,6 @@ describe 'Hand_Validator' do
 
   # Created 5/28/2022 by Noah Moon
   it 'returns true when same fourth attribute is same' do
-    deck = Deck.new
     card_set = Set.new
     card_set.add(Card.new 1,1,1,4)
     card_set.add(Card.new 2,2,2,4)
@@ -52,7 +50,6 @@ describe 'Hand_Validator' do
 
   # Created 5/28/2022 by Noah Moon
   it 'returns true when many attributes are same' do
-    deck = Deck.new
     card_set = Set.new
     card_set.add(Card.new 1,2,1,1)
     card_set.add(Card.new 1,2,2,2)
@@ -63,7 +60,6 @@ describe 'Hand_Validator' do
 
   # Created 5/28/2022 by Noah Moon
   it 'returns true when all attributes are same' do
-    deck = Deck.new
     card_set = Set.new
     card_set.add(Card.new 1,2,3,4)
     card_set.add(Card.new 1,2,3,4)
@@ -104,7 +100,6 @@ describe 'Hand_Validator' do
 
   # Created 5/28/2022 by Noah Moon
   it 'returns true when all attributes are different' do
-    deck = Deck.new
     card_set = Set.new
     card_set.add(Card.new 1,1,1,1)
     card_set.add(Card.new 2,2,2,2)
