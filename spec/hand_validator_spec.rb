@@ -72,13 +72,32 @@ describe 'Hand_Validator' do
     expect(Hand_Validate.validate_hand card_set).to be_truthy
   end
 
-  # Created 5/28/2022 by Noah Moon
-  it 'returns false when 1 attribute is different' do
-    deck = Deck.new
+  # Created 5/29/2022 by Noah Moon
+  it 'returns false when 1st cards attribute is different than the others' do
     card_set = Set.new
+    card_set.add(Card.new 1,2,2,1)
+    card_set.add(Card.new 2,3,3,2)
+    card_set.add(Card.new 2,3,3,2)
+
+    expect(Hand_Validate.validate_hand card_set).to be_falsey
+  end
+
+  # Created 5/29/2022 by Noah Moon
+  it 'returns false when 2nd cards attribute is different than the others' do
+    card_set = Set.new
+    card_set.add(Card.new 2,3,3,2)
     card_set.add(Card.new 1,1,1,1)
-    card_set.add(Card.new 2,2,2,2)
-    card_set.add(Card.new 2,3,3,3)
+    card_set.add(Card.new 2,3,3,2)
+
+    expect(Hand_Validate.validate_hand card_set).to be_falsey
+  end
+
+  # Created 5/29/2022 by Noah Moon
+  it 'returns false when 3rd cards attribute is different than the others' do
+    card_set = Set.new
+    card_set.add(Card.new 2,3,3,2)
+    card_set.add(Card.new 2,3,3,2)
+    card_set.add(Card.new 1,1,1,1)
 
     expect(Hand_Validate.validate_hand card_set).to be_falsey
   end
