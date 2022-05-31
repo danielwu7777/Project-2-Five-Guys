@@ -7,7 +7,7 @@ class Hand_Validate
   # Edited 5/29/2022 by Noah Moon
   # cards: set of cards that the user selected
   # returns true if there is some attribute that is the same for all cards, ot there is no common attribute
-  def self.validate_hand(cards)
+  def self.validate_hand?(cards)
     valid = true
     attribute_array = cards.map{|card| card.get_attribute_array}
 
