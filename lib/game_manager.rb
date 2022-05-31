@@ -1,6 +1,7 @@
 # File created 5/25/2022 by Daniel Wu 
 require_relative 'dealer'
 require_relative 'player'
+require_relative 'hand_validator'
 class GameManager   
     attr_reader :playerTurn
 
@@ -34,8 +35,8 @@ class GameManager
     def switchTurn  
         if @playerTurn == 1
             @playerTurn = 2
-            chosenCardsArray = @playerTwo.choose_cards 
-            # do something with array
+            chosenCardsArray = @playerTwo.choose_cards
+            # do something with array 
         else
             @playerTurn = 1
             chosenCardsArray = @playerOne.choose_cards
@@ -61,3 +62,33 @@ class GameManager
         end      
     end
 end 
+
+=begin
+ if Hand_Validate.validate_hand chosenCardsArray
+    puts "Valid hand! 1 point added to Player 2"
+    @playerTwo.score_increment!
+else 
+    puts "Invalid hand!"
+    if @dealer.deck.get_count >= 3
+        puts "Player 1, it's your turn"
+        switchTurn
+    else 
+        puts "No more cards to draw"
+        endGame
+    end
+end
+
+if Hand_Validate.validate_hand chosenCardsArray
+    puts "Valid hand! 1 point added to Player 1"
+    @playerOne.score_increment!
+else 
+    puts "Invalid hand!"
+    if @dealer.deck.get_count >= 3
+        puts "Player 2, it's your turn"
+        switchTurn
+    else 
+        puts "No more cards to draw"
+        endGame
+    end
+end
+=end
