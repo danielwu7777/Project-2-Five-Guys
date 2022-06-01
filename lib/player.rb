@@ -1,5 +1,7 @@
 # File created 5/25/2022 by Yuhao Yan
 # Edited 5/26/2022 by Yuhao Yan
+# Edited 5/31/2022 by Daniel Wu: Changed index array to set
+require 'set'
 class Player
 
     # Created 5/25/2022 by Yuhao Yan
@@ -50,20 +52,20 @@ class Player
 
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name. Change the way of manipulating Strings from user inputs
-    # Return an array of 3 indexes for 3 cards. Determined by user inputs.
+    # Return a set of 3 indexes for 3 cards. Determined by user inputs.
+    # Edited 5/31/2022 by Daniel Wu: Changed index array to set
     def choose_cards()
-        indexes = [nil,nil,nil]
+        indexSet = Set.new
         puts "Please input 3 indexes of cards (1 <= index <= 12)."
         print "First index:"
-        indexes[0] = gets.chomp!.to_i
+        indexSet.add($stdin.gets.chomp!.to_i)
         
         print "Second index:"
-        indexes[1] = gets.chomp!.to_i
+        indexSet.add($stdin.gets.chomp!.to_i)
 
         print "Third index:"
-        indexes[2] = gets.chomp!.to_i
-
-        indexes
+        indexSet.add($stdin.gets.chomp!.to_i)
+        indexSet
     end
 
 end

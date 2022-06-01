@@ -3,63 +3,51 @@ require_relative 'dealer'
 require_relative 'player'
 require_relative 'hand_validator'
 class GameManager   
-    attr_reader :playerTurn
-
     # Created 5/25/2022 by Daniel Wu
     # Edited 5/26/2022 by Daniel Wu: Deleted player scores since player class will handle
     # Edited 5/27/2022 by Daniel Wu: Moved getting number of players to method and changed name from startGame to initialize
+    # Edited 5/31/2022 by Daniel Wu: Changed to single player game and deleted unnecessary methods/instance variables
     def initialize
-        getNumPlayers
-        # (1 means playerOne's turn, 2 means playerTwo's turn, etc.)
-        @playerTurn = 1;
+        puts "Welcome to the game of Set!"
+        puts "GAME START"
+        @player = Player.new
         @dealer = Dealer.new
+        #playerAction    commented out for now
     end   
 
-    # Created 5/27/2022 by Daniel Wu
-    def getNumPlayers 
-        print "Enter number of players(2 maximum): "      
-        numPlayers = $stdin.gets.chomp.to_i
-        # Keep asking until user gives a valid input
-        while numPlayers != 1 && numPlayers != 2
-            puts "Invalid number of players. Expected 1 or 2 but got " + numPlayers.to_s + ". Please try again"
-            print "Enter number of players(2 maximum): "      
-            numPlayers = $stdin.gets.chomp.to_i
+    # Created 5/31/2022 by Daniel Wu
+    def playerAction
+        cardIndexSet = @player.choose_cards
+        cardSet = Set.new
+        # convert to a set of 3 cards
+        # validate hand
+        if Hand_Validate.validate_hand? cardSet
+            puts "Valid hand! 1 point added to your score"
+            @player.score_increment!
+            if @dealer.deck.get_count >= 3
+                playerAction
+            else 
+                puts "No more cards to draw"
+                endGame 
+            end
+        else 
+            puts "Invalid hand!"  
+            if @dealer.deck.get_count >= 3
+                playerAction
+            else 
+                puts "No more cards to draw"
+                endGame 
+            end
         end
-        @playerOne = Player.new
-        @playerTwo = Player.new
     end
 
     # Created 5/25/2022 by Daniel Wu
-    # Edited 5/26/2022 by Daniel Wu: Added call for player to choose cards
-    # Switch turn for players
-    def switchTurn  
-        if @playerTurn == 1
-            @playerTurn = 2
-            chosenCardsArray = @playerTwo.choose_cards
-            # do something with array 
-        else
-            @playerTurn = 1
-            chosenCardsArray = @playerOne.choose_cards
-            # do something with array
-        end
-    end      
-
-    # Created 5/25/2022 by Daniel Wu
     # Edited 5/27/2022 by Daniel Wu: Changed call for getting player's scores
+    # Edited 5/31/2022 by Daniel Wu: Changed to single player
     def endGame  
         puts "GAME ENDED"
         puts "Score Breakdown:"
-        puts "Player 1 had a score of " + @playerOne.get_score.to_s
-        puts "Player 2 had a score of " + @playerTwo.get_score.to_s
-        puts
-        x = @playerOne.get_score <=> @playerTwo.get_score
-        if x == -1
-            puts "Player 2 wins!"
-        elsif x == 1
-            puts "Player 1 wins!"
-        else
-            puts "It's a TIE!"
-        end      
+        puts "You had a score of " + @player.get_score.to_s     
     end
 end 
 
