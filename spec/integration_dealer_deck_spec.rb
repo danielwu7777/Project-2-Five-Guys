@@ -11,18 +11,23 @@ describe 'Dealer and Deck' do
   end
 
   # Create 5/31/2022 by Jake McCann
-  it 'removes 1 card from deck when dealer deals a card' do
-    test_dealer = Dealer.new
-    pre_deal_deck_count = test_dealer.deck.get_count
-    test_dealer.deal_card
-    expect(test_dealer.deck.get_count == pre_deal_deck_count - 1).to be_truthy
-  end
-
-  # Create 5/31/2022 by Jake McCann
   it 'removes 3 cards from deck when dealer deals three cards' do
     test_dealer = Dealer.new
     pre_deal_deck_count = test_dealer.deck.get_count
     test_dealer.add_three_cards
     expect(test_dealer.deck.get_count == pre_deal_deck_count - 3).to be_truthy
+  end
+
+  # Create 6/1/2022 by Jake McCann
+  it 'does not contain 12 cards dealt initially by dealer' do
+    test_dealer = Dealer.new
+    test_dealer.dealt_cards.each{|card| expect(test_dealer.deck === card).to be_falsey}
+  end
+
+  # Create 6/1/2022 by Jake McCann
+  it 'does not contain 3 cards dealt by dealer' do
+    test_dealer = Dealer.new
+    test_dealer.add_three_cards
+    test_dealer.dealt_cards.each{|card| expect(test_dealer.deck === card).to be_falsey}
   end
 end
