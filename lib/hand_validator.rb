@@ -18,6 +18,7 @@ class Hand_Validate
 
   end
 
+  private
   # Created 5/30/2022 by Noah Moon
   def self.is_same?(attribute_array, index)
     attribute_array[0][index] == attribute_array[1][index] && attribute_array[1][index] == attribute_array[2][index]
