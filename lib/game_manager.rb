@@ -45,13 +45,14 @@ class GameManager
 
     # Created 5/25/2022 by Daniel Wu
     # Edited 5/27/2022 by Daniel Wu: Changed call for getting player's scores
+    # Edited 6/1/2022 by Jake McCann: removed use of get_scores
     def endGame  
         puts "GAME ENDED"
         puts "Score Breakdown:"
-        puts "Player 1 had a score of " + @playerOne.get_score.to_s
-        puts "Player 2 had a score of " + @playerTwo.get_score.to_s
+        puts "Player 1 had a score of " + @playerOne.score.to_s
+        puts "Player 2 had a score of " + @playerTwo.score.to_s
         puts
-        x = @playerOne.get_score <=> @playerTwo.get_score
+        x = @playerOne.score <=> @playerTwo.score
         if x == -1
             puts "Player 2 wins!"
         elsif x == 1
