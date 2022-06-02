@@ -7,10 +7,10 @@ class Player
 
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name.
+    # Edited 6/1/2022 by Noah Moon
     # initialize player with name "John" and score 0.
     def initialize(name = "John",score = 0)
-        @name = name
-        @score = score
+        @name, @score = name, score
     end
 
     # Created 5/25/2022 by Yuhao Yan
@@ -23,6 +23,7 @@ class Player
 
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name. Change the way of manipulating Strings from user inputs
+    # Edited 6/1/2022 by Noah Moon
     # Return an array of 3 indexes for 3 cards. Determined by user inputs.
     def choose_cards
         indexes = [nil,nil,nil]
