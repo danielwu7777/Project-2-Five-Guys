@@ -5,9 +5,21 @@ require_relative '../lib/player'
 describe 'player' do
 
   # Created 5/31/2022 by Noah Moon
-  it 'example' do
-    dealer = Dealer.new
-    expect(1).to be_truthy
+  it 'makes sure the score is increased by one' do
+    player = Player.new
+    expectedVal = player.score + 1
+    player.score_increment!
+    
+    expect(expectedVal == player.score).to be_truthy
+  end
+   
+  #doesnt work need input
+  it 'makes sure the player will choose three cards' do
+    player = Player.new 
+    allow().to receive(:gets).and_return("1\n","2\n","3\n")
+    expectedSet = [0,1,2]
+    actual = player.choose_cards
+    expect(expectedSet == actual).to be_truthy
   end
 end
 
