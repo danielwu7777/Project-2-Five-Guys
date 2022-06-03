@@ -9,7 +9,7 @@ describe 'Dealer' do
   it 'initialize game pulls 12 cards and displays' do
     dealer = Dealer.new
 
-    expect(dealer.dealt_cards.length == 12 && dealer.deck.get_count == 81-12).to be_truthy
+    expect(dealer.dealt_cards.length == 12 && dealer.deck.count == 81-12).to be_truthy
   end
 
   # Created 5/31/2022 by Noah Moon
@@ -17,7 +17,7 @@ describe 'Dealer' do
     dealer = Dealer.new
     dealer.add_three_cards
 
-    expect(dealer.dealt_cards.length == 15 && dealer.deck.get_count == 81-15).to be_truthy
+    expect(dealer.dealt_cards.length == 15 && dealer.deck.count == 81-15).to be_truthy
   end
 
   # Created 5/31/2022 by Noah Moon
@@ -25,7 +25,7 @@ describe 'Dealer' do
     dealer = Dealer.new
     index_set = Set[1,2,3]
     dealer.remove_3_cards index_set
-    expect(dealer.dealt_cards.length == 9 && dealer.deck.get_count == 81-12).to be_truthy
+    expect(dealer.dealt_cards.length == 9 && dealer.deck.count == 81-12).to be_truthy
   end
 
   # Created 5/31/2022 by Noah Moon
@@ -35,7 +35,7 @@ describe 'Dealer' do
     dealer.remove_3_cards index_set
     dealer.add_three_cards
 
-    expect(dealer.dealt_cards.length == 12 && dealer.deck.get_count == 81-15).to be_truthy
+    expect(dealer.dealt_cards.length == 12 && dealer.deck.count == 81-15).to be_truthy
   end
 
   # Created 5/31/2022 by Noah Moon
