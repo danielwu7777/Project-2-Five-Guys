@@ -5,11 +5,12 @@ require_relative 'card'
 
 class Deck
   # Created 5/25/2022 by Noah Moon
-  # Edited 5/26/2022
+  # Edited 5/26/2022: made more terse
+  # Edited 6/2/2022: made more terse.
   # Creates a populated and shuffled deck of 81 cards
   # The deck is usable as its own object, but also returns a stack
   def initialize
-    @stack = reset
+    reset
   end
 
   # Created 5/25/2022 by Noah Moon
