@@ -1,5 +1,6 @@
 # File created 5/25/2022 by Noah Moon
-# Edited 5/26/2022
+# Edited 5/26/2022 by Noah Moon
+# Edited 6/2/2022 by Noah Moon
 require_relative 'card'
 
 class Deck
@@ -36,9 +37,10 @@ class Deck
   end
 
   # Created 5/25/2022 by Noah Moon
-  # Edited 5/26/2022
+  # Edited 5/26/2022 by Noah Moon: Made more terse
+  # Edited 6/2/2022 by Noah Moon: changed name from get_count to count git
   # Gets current count of remaining cards
-  def get_count
+  def count
     @stack.count
   end
 

@@ -6,7 +6,7 @@ require_relative '../lib/card'
 describe 'Deck' do
   it 'creates a new deck' do
     deck = Deck.new
-    expect(deck.get_count == 81).to be_truthy
+    expect(deck.count == 81).to be_truthy
   end
 
   # Created 5/16/2022 by Noah Moon
@@ -20,17 +20,17 @@ describe 'Deck' do
   it 'resets to full deck from full' do
     deck = Deck.new
     deck.reset
-    expect(deck.get_count == 81).to be_truthy
+    expect(deck.count == 81).to be_truthy
   end
 
   # Created 5/16/2022 by Noah Moon
   it 'resets to full deck from depleated' do
     deck = Deck.new
-    while deck.get_count > 10 do
+    while deck.count > 10 do
       deck.draw
     end
     deck.reset
-    expect(deck.get_count == 81).to be_truthy
+    expect(deck.count == 81).to be_truthy
   end
 
   # Created 5/15/2022 by Noah Moon
@@ -41,7 +41,7 @@ describe 'Deck' do
       deck.draw
       i -= 1
     end
-    expect(deck.get_count == 31).to be_truthy
+    expect(deck.count == 31).to be_truthy
   end
 
   # Created 5/16/2022 by Noah Moon
