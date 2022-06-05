@@ -5,7 +5,8 @@ class Hand_Validate
 
   # Created 5/28/2022 by Noah Moon
   # Edited 5/29/2022 by Noah Moon
-  
+  # Edited 5/31/2022 by Daniel Wu: Fixed typos in comments and reformatted methods
+  # Edited 6/4/2022 by Yuhao Yan
   # cards: set of cards that the user selected
   # returns true if there is some attribute that is the same for all cards, ot there is no common attribute
   def self.validate_hand?(cards)
