@@ -9,6 +9,7 @@ describe 'GameManager' do
     
     # Created 5/31/2022 by Daniel Wu
     it 'initialize game and end game' do
+        allow_any_instance_of(Dealer).to receive_message_chain(:dealt_cards, :size).and_return(0)
         game = GameManager.new
         expect do
             game.endGame
@@ -16,7 +17,10 @@ describe 'GameManager' do
     end
 
     # Tests with user input
-
+    it 'test' do
+      allow_any_instance_of(Dealer).to receive_message_chain(:dealt_cards, :size).and_return(0)
+      game = GameManager.new
+    end
 =begin
     # Created 6/4/2022 by Daniel Wu
     it 'End game with a score of 0' do
