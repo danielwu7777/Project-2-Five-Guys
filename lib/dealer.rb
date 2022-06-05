@@ -36,6 +36,15 @@ class Dealer
         card_array.each { |card| @dealt_cards.delete(card)  }
     end
 
+    # Created 6/4/2022 by Jake McCann
+    # Returns set containing cards at indexes contained in index_set
+    # index_set: set of card indexes to be fetched
+    def retrieve_cards(index_set)
+        fetched_cards_set = Set.new
+        index_set.each {|index| fetched_cards_set.add(@dealt_cards[index])}
+        fetched_cards_set
+    end
+
     private
     # Create 5/27/2022 by Mingxuan Gong
     # Edited 5/25/2022 by Mingxuan Gong

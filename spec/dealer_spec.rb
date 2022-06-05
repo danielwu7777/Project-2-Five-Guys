@@ -48,4 +48,24 @@ describe 'Dealer' do
 
     expect(dealer.dealt_cards.include?(cards[1]) || dealer.dealt_cards.include?(cards[2]) || dealer.dealt_cards.include?(cards[3])).to be_falsey
   end
+
+  #Created 6/4/2022 by Jake McCann
+  it 'retrieves cards at indexes inside dealt_cards' do
+    dealer = Dealer.new
+    index_set = Set[1,2,3]
+    expected_card_set = Set[dealer.dealt_cards[1], dealer.dealt_cards[2], dealer.dealt_cards[3]]
+    result = dealer.retrieve_cards index_set
+
+    expect(expected_card_set == result).to be_truthy
+  end
+
+  #Created 6/4/2022 by Jake McCann
+  it 'retrieves cards at indexes on the edge of dealt_cards' do
+    dealer = Dealer.new
+    index_set = Set[0,1,12]
+    expected_card_set = Set[dealer.dealt_cards[0], dealer.dealt_cards[1], dealer.dealt_cards[12]]
+    result = dealer.retrieve_cards index_set
+
+    expect(expected_card_set == result).to be_truthy
+  end
 end
