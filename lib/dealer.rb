@@ -36,6 +36,11 @@ class Dealer
         card_array.each { |card| @dealt_cards.delete(card)  }
     end
 
+    #Created 6/4/2022 by Jake McCann
+    def retrieve_cards(index_set)
+
+    end
+
     private
     # Create 5/27/2022 by Mingxuan Gong
     # Edited 5/25/2022 by Mingxuan Gong
