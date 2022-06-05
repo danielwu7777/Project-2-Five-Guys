@@ -18,6 +18,33 @@ class Hand_Validate
 
   end
 
+  # Created 6/5/2022 by Yuhao Yan
+  # cards: set of cards that are on the table
+  # returns true if there is at least one valid set
+  def self.validate_hand?(table)
+
+    range = table.length
+    if range < 3
+      return false
+    end
+
+    for index1 in 0...(range - 2)
+      for index2 in (index1+1)...(range - 1)
+        for index3 in (index2 + 1)...range
+          set = Array.new
+          set.push table[index1], table[index2], table[index3]
+
+          if self.validate_hand? set
+            return true
+          end
+
+        end
+      end
+   end
+   false
+
+  end
+
   private
   # Created 5/30/2022 by Noah Moon
   def self.is_same?(attribute_array, index)
