@@ -19,9 +19,10 @@ class Hand_Validate
   end
 
   # Created 6/5/2022 by Yuhao Yan
+  # Edited 6/5/2022 by Yuhao Yan
   # cards: set of cards that are on the table
   # returns true if there is at least one valid set
-  def self.validate_hand?(table)
+  def self.validate_table?(table)
 
     range = table.length
     if range < 3
