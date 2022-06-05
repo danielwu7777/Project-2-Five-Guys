@@ -13,7 +13,7 @@ class Hand_Validate
     attribute_array = cards.map{|card| card.get_attribute_array}
 
     attribute_array[0].each_index { |index|
-      valid &= attribute_valid?(attribute_array, index)
+      valid &= attribute_valid? attribute_array, index
     }
     valid
 
@@ -21,11 +21,11 @@ class Hand_Validate
 
   private
   # Created 6/4/2022 by Yuhao Yan
-  def attribute_valid?(attribute_array, index)
+  def self.attribute_valid?(attribute_array, index)
     attribute_counter = [0, 0, 0]
 
     attribute_array.each_index { |card_index|
-      attribute = attribute_array[card_index][index]
+      attribute = attribute_array[card_index][index] -1
       attribute_counter[attribute] += 1
     }
 
