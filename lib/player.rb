@@ -34,6 +34,7 @@ class Player
         while indexSet.size < 3 do
             print "Enter index index:"
             input = STDIN.gets.chomp!.to_i - 1
+            if indexSet.include? input then puts 'You already entered this card!' end
             if input >= 0 and input < available_card_count then indexSet.add(input) else puts 'Invalid card number' end
         end
         indexSet

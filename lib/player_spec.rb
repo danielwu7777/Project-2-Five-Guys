@@ -1,4 +1,5 @@
 # File created 6/1/2022 by Noah Moon
+# File edited 6/5/2020 by Jake McCann: test input validation
 require_relative '../lib/player'
 
 # Created 5/31/2022 by Noah Moon
@@ -46,5 +47,12 @@ describe 'player' do
     player = Player.new
     allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,2,20,3)
     expect do player.choose_cards 12 end.to output(/Invalid card number/).to_stdout
+  end
+
+  # Created 5/31/2022 by Jake McCann
+  it 'should print you already entered this card! when user enters same input' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,1,2,3)
+    expect do player.choose_cards 12 end.to output(/You already entered this card!/).to_stdout
   end
 end
