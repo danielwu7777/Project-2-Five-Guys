@@ -23,6 +23,7 @@ class GameManager
         while @dealer.deck.count >= 3
             cardIndexSet = Set.new
             cardIndexSet = @player.choose_cards
+            puts cardIndexSet.to_s
             cardSet = Set.new
             cardSet = @dealer.retrieve_cards cardIndexSet
             if Hand_Validate.validate_hand? cardSet
