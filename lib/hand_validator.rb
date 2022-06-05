@@ -5,7 +5,11 @@ class Hand_Validate
 
   # Created 5/28/2022 by Noah Moon
   # Edited 5/29/2022 by Noah Moon
+<<<<<<< HEAD
   # Edited 5/31/2022 by Daniel Wu: Fixed typos in comments and reformatted methods
+=======
+  # Edited 6/4/2022 by Yuhao Yan
+>>>>>>> origin/hand_validator_update
   # cards: set of cards that the user selected
   # returns true if there is some attribute that is the same for all cards, ot there is no common attribute
   def self.validate_hand?(cards)
@@ -13,20 +17,25 @@ class Hand_Validate
     attribute_array = cards.map{|card| card.get_attribute_array}
 
     attribute_array[0].each_index { |index|
-      valid &= is_same?(attribute_array, index) || is_different?(attribute_array, index)
+      valid &= attribute_valid?(attribute_array, index)
     }
     valid
   end
 
   private
-  # Created 5/30/2022 by Noah Moon
-  def self.is_same?(attribute_array, index)
-    attribute_array[0][index] == attribute_array[1][index] && attribute_array[1][index] == attribute_array[2][index]
-  end
+  # Created 6/4/2022 by Yuhao Yan
+  def attribute_valid?(attribute_array, index)
+    attribute_counter = [0, 0, 0]
 
-  # Created 5/30/2022 by Noah Moon
-  def self.is_different?(attribute_array, index)
-    attribute_array[0][index] != attribute_array[1][index]  && attribute_array[0][index] != attribute_array[2][index] && attribute_array[1][index] != attribute_array[2][index]
+    attribute_array.each_index { |card_index|
+      attribute = attribute_array[card_index][index]
+      attribute_counter[attribute] += 1
+    }
+
+    attribute_counter.each { |num|
+      if num == 2 then return false end
+    }
+    true
   end
 end
 
