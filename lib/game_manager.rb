@@ -2,6 +2,8 @@
 require_relative 'dealer'
 require_relative 'player'
 require_relative 'hand_validator'
+require 'set'
+
 class GameManager   
     # Created 5/25/2022 by Daniel Wu
     # Edited 5/26/2022 by Daniel Wu: Deleted player scores since player class will handle
@@ -12,31 +14,23 @@ class GameManager
         puts "GAME START"
         @player = Player.new
         @dealer = Dealer.new
-        #playerAction    commented out for now
+        playerAction
     end   
 
     # Created 5/31/2022 by Daniel Wu
     def playerAction
-        cardIndexSet = @player.choose_cards
-        cardSet = Set.new
-        # convert to a set of 3 cards
-        # validate hand
-        if Hand_Validate.validate_hand? cardSet
-            puts "Valid hand! 1 point added to your score"
-            @player.score_increment!
-            if @dealer.deck.get_count >= 3
-                playerAction
+        # Player keeps drawing cards until deck size is < 3
+        while @dealer.deck.count >= 3
+            cardIndexSet = Set.new
+            cardIndexSet = @player.choose_cards
+            cardSet = @dealer.retrieve_cards cardIndexSet
+            if Hand_Validate.validate_hand? cardSet
+                @dealer.remove_3_cards cardIndexSet
+                @dealer.add_three_cards 
+                puts "Valid hand! 1 point added to your score"
+                @player.score_increment!
             else 
-                puts "No more cards to draw"
-                endGame 
-            end
-        else 
-            puts "Invalid hand!"  
-            if @dealer.deck.get_count >= 3
-                playerAction
-            else 
-                puts "No more cards to draw"
-                endGame 
+                puts "Invalid hand!"  
             end
         end
     end
@@ -44,49 +38,10 @@ class GameManager
     # Created 5/25/2022 by Daniel Wu
     # Edited 5/27/2022 by Daniel Wu: Changed call for getting player's scores
     # Edited 6/1/2022 by Jake McCann: removed use of get_scores
+    # Edited 6/4/2022 by Daniel Wu: Changed to single player
     def endGame  
         puts "GAME ENDED"
         puts "Score Breakdown:"
-        puts "Player 1 had a score of " + @playerOne.score.to_s
-        puts "Player 2 had a score of " + @playerTwo.score.to_s
-        puts
-        x = @playerOne.score <=> @playerTwo.score
-        if x == -1
-            puts "Player 2 wins!"
-        elsif x == 1
-            puts "Player 1 wins!"
-        else
-            puts "It's a TIE!"
-        end      
+        puts "You had a score of " + @player.score
     end
 end 
-
-=begin
- if Hand_Validate.validate_hand chosenCardsArray
-    puts "Valid hand! 1 point added to Player 2"
-    @playerTwo.score_increment!
-else 
-    puts "Invalid hand!"
-    if @dealer.deck.get_count >= 3
-        puts "Player 1, it's your turn"
-        switchTurn
-    else 
-        puts "No more cards to draw"
-        endGame
-    end
-end
-
-if Hand_Validate.validate_hand chosenCardsArray
-    puts "Valid hand! 1 point added to Player 1"
-    @playerOne.score_increment!
-else 
-    puts "Invalid hand!"
-    if @dealer.deck.get_count >= 3
-        puts "Player 2, it's your turn"
-        switchTurn
-    else 
-        puts "No more cards to draw"
-        endGame
-    end
-end
-=end
