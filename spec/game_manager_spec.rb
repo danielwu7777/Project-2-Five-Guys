@@ -17,12 +17,4 @@ describe 'GameManager' do
 
     # Tests with user input
 
-=begin
-    # Created 6/4/2022 by Daniel Wu
-    it 'End game with a score of 0' do
-        player = Player.new
-        player.score = 0
-        expect {GameManager.endGame}.to output("GAME ENDED\nScore Breakdown:\nYou had a score of 0\n").to_stdout
-    end
-=end
 end

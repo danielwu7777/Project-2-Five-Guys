@@ -1,8 +1,6 @@
 # File created 5/25/2022 by Yuhao Yan
 # Edited 5/26/2022 by Yuhao Yan
 # Edited 6/1/2022 by Noah Moon
-require 'set'
-
 class Player
     # Created 6/1/2022 by Noah Moon
     attr_accessor :name, :score
@@ -26,9 +24,9 @@ class Player
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name. Change the way of manipulating Strings from user inputs
     # Edited 6/1/2022 by Noah Moon: removed parenthesis
-    # Return a set of 3 indexes for 3 cards. Determined by user inputs.
+    # Return an array of 3 indexes for 3 cards. Determined by user inputs.
     def choose_cards
-        indexSet = Set.new
+        indexes = [nil,nil,nil]
         puts "Please input 3 indexes of cards (1 <= index <= 12)."
         print "First index:"
         indexSet.add($stdin.gets.chomp!.to_i)
