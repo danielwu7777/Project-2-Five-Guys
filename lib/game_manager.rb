@@ -20,7 +20,7 @@ class GameManager
     # Created 5/31/2022 by Daniel Wu
     def playerAction
         # Player keeps drawing cards until deck size is < 3
-        while @dealer.dealt_cards >= 3
+        while @dealer.dealt_cards.size >= 3
             cardIndexSet = Set.new
             cardIndexSet = @player.choose_cards
             cardSet = @dealer.retrieve_cards cardIndexSet
