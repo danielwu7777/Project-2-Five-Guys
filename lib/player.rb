@@ -26,18 +26,16 @@ class Player
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name. Change the way of manipulating Strings from user inputs
     # Edited 6/1/2022 by Noah Moon: removed parenthesis
+    # Edited 6/5/2022 by Jake McCann: add input validation
     # Return a set of 3 indexes for 3 cards. Determined by user inputs.
-    def choose_cards
+    def choose_cards(available_card_count)
         indexSet = Set.new
-        puts "Please input 3 indexes of cards (1 <= index <= 12)."
-        print "First index:"
-        indexSet.add($stdin.gets.chomp!.to_i - 1)
-        
-        print "Second index:"
-        indexSet.add($stdin.gets.chomp!.to_i - 1)
-
-        print "Third index:"
-        indexSet.add($stdin.gets.chomp!.to_i - 1)
+        puts "Please input 3 indexes of cards."
+        while indexSet.size < 3 do
+            print "Enter index index:"
+            input = STDIN.gets.chomp!.to_i - 1
+            if input >= 0 and input < available_card_count then indexSet.add(input) else puts 'Invalid card number' end
+        end
         indexSet
     end
 end

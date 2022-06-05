@@ -22,7 +22,7 @@ class GameManager
         # Player keeps drawing cards until deck size is < 3
         while @dealer.dealt_cards.size >= 3
             cardIndexSet = Set.new
-            cardIndexSet = @player.choose_cards
+            cardIndexSet = @player.choose_cards @dealer.dealt_cards.size
             cardSet = @dealer.retrieve_cards cardIndexSet
             if Hand_Validate.validate_hand? cardSet
                 @dealer.remove_3_cards cardIndexSet
