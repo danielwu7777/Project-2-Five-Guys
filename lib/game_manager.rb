@@ -33,6 +33,8 @@ class GameManager
                 puts "Invalid hand!"  
             end
         end
+        puts "Not enough cards left to continue game...."
+        endGame
     end
 
     # Created 5/25/2022 by Daniel Wu
@@ -42,6 +44,6 @@ class GameManager
     def endGame  
         puts "GAME ENDED"
         puts "Score Breakdown:"
-        puts "You had a score of " + @player.score
+        puts "You had a score of " + @player.score.to_s
     end
 end 
