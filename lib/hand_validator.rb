@@ -28,14 +28,17 @@ class Hand_Validate
     if range < 3
       return false
     end
+    cards = table.to_a
 
     for index1 in 0...(range - 2)
       for index2 in (index1+1)...(range - 1)
         for index3 in (index2 + 1)...range
-          set = Array.new
-          set.push table[index1], table[index2], table[index3]
+          cardset = Set.new
+          cardset.add cards[index1]
+          cardset.add cards[index2]
+          cardset.add cards[index3]
 
-          if self.validate_hand? set
+          if self.validate_hand? cardset
             return true
           end
 
