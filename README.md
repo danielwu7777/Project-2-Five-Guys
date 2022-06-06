@@ -9,9 +9,10 @@ To run our current build type:
 from inside the project directory.
 
 # How to play
-1. The user will be prompted to enter the number of players
+1. Run the program
 2. The starting 12 cards will be dealt
-3. Remaining not implemented
+3. Type in the positions of the three cards one at a time that you believe makes a set
+4. Play until the cards run out
 
 
 
