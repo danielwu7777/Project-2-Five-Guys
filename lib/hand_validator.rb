@@ -12,19 +12,25 @@ class Hand_Validate
     valid = true
     attribute_array = cards.map{|card| card.get_attribute_array}
     attribute_array[0].each_index { |index|
-      valid &= is_same?(attribute_array, index) || is_different?(attribute_array, index)
+      valid &= attribute_valid? attribute_array, index
     }
     valid
   end
 
   private
-  # Created 5/30/2022 by Noah Moon
-  def self.is_same?(attribute_array, index)
-    attribute_array[0][index] == attribute_array[1][index] && attribute_array[1][index] == attribute_array[2][index]
-  end
+  # Created 6/4/2022 by Yuhao Yan
+  # Edited 6/4/2022 by Yuhao Yan
+  def self.attribute_valid?(attribute_array, index)
+    attribute_counter = [0, 0, 0, 0]
 
-  # Created 5/30/2022 by Noah Moon
-  def self.is_different?(attribute_array, index)
-    attribute_array[0][index] != attribute_array[1][index]  && attribute_array[0][index] != attribute_array[2][index] && attribute_array[1][index] != attribute_array[2][index]
+    attribute_array.each_index { |card_index|
+      attribute = attribute_array[card_index][index] -1
+      attribute_counter[attribute] += 1
+    }
+
+    attribute_counter.each { |num|
+      if num == 2 then return false end
+    }
+    true
   end
 end
