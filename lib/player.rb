@@ -12,7 +12,6 @@ class Player
     # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Edited 6/1/2022 by Noah Moon: parallel assignment
     # # Edited 6/5/2022 by Jake McCann: remove name argument.
-    # initialize player with name "John" and score 0.
     def initialize
         @score = 0
     end
