@@ -1,45 +1,58 @@
 # File created 6/1/2022 by Noah Moon
+# File edited 6/5/2020 by Jake McCann: test input validation
 require_relative '../lib/player'
 
 # Created 5/31/2022 by Noah Moon
 describe 'player' do
 
   # Created 5/31/2022 by Noah Moon
-  it 'example' do
-    dealer = Dealer.new
-    expect(1).to be_truthy
+  # Edited 6/5/2022 by Jake McCann: give real implementation
+  it 'should return set of user input -1 for valid input' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,2,3)
+    expected = Set[0,1,2]
+    result = player.choose_cards 12
+    expect(expected == result).to be_truthy
+  end
+
+  # Created 5/31/2022 by Jake McCann
+  it 'should return set containing only valid indicies when first input is invalid' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(20,1,2,3)
+    expected = Set[0,1,2]
+    result = player.choose_cards 12
+    expect(expected == result).to be_truthy
+  end
+
+  # Created 5/31/2022 by Jake McCann
+  it 'should return set containing only valid indicies when second input is invalid' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,20,2,3)
+    expected = Set[0,1,2]
+    result = player.choose_cards 12
+    expect(expected == result).to be_truthy
+  end
+
+  # Created 5/31/2022 by Jake McCann
+  it 'should return set containing only valid indicies when third input is invalid' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,2,20,3)
+    expected = Set[0,1,2]
+    result = player.choose_cards 12
+    expect(expected == result).to be_truthy
+  end
+
+  # Created 5/31/2022 by Jake McCann
+  it 'should print invalid number when invalid input occurs' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,2,20,3)
+    expect do player.choose_cards 12 end.to output(/Invalid card number/).to_stdout
+  end
+
+  # Created 5/31/2022 by Jake McCann
+  it 'should print you already entered this card! when user enters same input' do
+    player = Player.new
+    allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,1,2,3)
+    expect do player.choose_cards 12 end.to output(/You already entered this card!/).to_stdout
   end
 end
-
-
-=begin
-
-#test
-player1 = Player.new "Hao",50
-player2 = Player.new
-
-#test of chooseCards
-puts player1.choose_cards.to_s
-
-#test of name methods
-puts player1.get_name   #expected print: Hao
-puts player2.get_name   #expected print: John
-player1.set_name!
-puts player1.get_name   #expected print: John
-player1.set_name! "nanren"
-puts player1.get_name   #expected print: nanren
-
-#test of score methods
-puts player1.get_score          #expected score: 50
-puts player2.get_score          #expected score: 0
-player1.set_score!
-puts player1.get_score          #expected score: 0
-player1.set_score! 123
-puts player1.get_score          #expected score: 123
-player1.score_increment!        #expected score: 124
-puts player1.get_score
-player1.score_increment! 100    #expected score: 224
-puts player1.get_score
-
-
-=end

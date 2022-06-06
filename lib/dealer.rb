@@ -54,4 +54,5 @@ class Dealer
         12.times{@dealt_cards.push(@deck.draw)}
         Game_Table.display_cards(@dealt_cards)
     end
+
 end
