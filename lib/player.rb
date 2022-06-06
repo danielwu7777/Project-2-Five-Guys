@@ -1,26 +1,29 @@
 # File created 5/25/2022 by Yuhao Yan
 # Edited 5/26/2022 by Yuhao Yan
 # Edited 6/1/2022 by Noah Moon
+# edited 6/52022 by Jake McCann: remove name class variable
 require 'set'
 
 class Player
     # Created 6/1/2022 by Noah Moon
-    attr_accessor :name, :score
+    attr_accessor :score
 
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name.
     # Edited 6/1/2022 by Noah Moon: parallel assignment
+    # # Edited 6/5/2022 by Jake McCann: remove name argument.
     # initialize player with name "John" and score 0.
-    def initialize(name = "John",score = 0)
-        @name, @score = name, score
+    def initialize
+        @score = 0
     end
 
     # Created 5/25/2022 by Yuhao Yan
     # Edited 5/26/2022 by Yuhao Yan: Change of method name.
+    # Edited 6/5/2022 by Jake McCann: remove arguments.
     # Increment score by input number{@points} of points
     # Default: score increments by 1
-    def score_increment!(points = 1)
-        @score += points
+    def score_increment!
+        @score += 1
     end
 
     # Created 5/25/2022 by Yuhao Yan

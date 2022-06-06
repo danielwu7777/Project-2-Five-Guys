@@ -55,4 +55,25 @@ describe 'player' do
     allow(STDIN).to receive_message_chain(:gets, :chomp!, :to_i).and_return(1,1,2,3)
     expect do player.choose_cards 12 end.to output(/You already entered this card!/).to_stdout
   end
+
+  # Created 6/5/2022 by Jake McCann
+  it 'should start player with score of 0' do
+    player = Player.new
+    expect(player.score == 0).to be_truthy
+  end
+
+  # Created 6/5/2022 by Jake McCann
+  it 'should increment player score after calling increment' do
+    player = Player.new
+    player.score_increment!
+    expect(player.score == 1).to be_truthy
+  end
+
+  # Created 6/5/2022 by Jake McCann
+  it 'should increment player score twice after calling increment twice' do
+    player = Player.new
+    player.score_increment!
+    player.score_increment!
+    expect(player.score == 2).to be_truthy
+  end
 end
